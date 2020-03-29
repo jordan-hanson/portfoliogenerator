@@ -226,7 +226,7 @@ function generateHTML(data) {
         <div class="col card">
            <h1>GitHub Stars
            <br>
-           ${starred}</h1>
+            </h1>
         </div>
         <div class="col card">
            <h1>Following
