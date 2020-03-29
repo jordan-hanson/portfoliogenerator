@@ -62,7 +62,6 @@
            .photo-header {
            position: relative;
            margin: 0 auto;
-           margin-bottom: -50px;
            display: flex;
            justify-content: center;
            flex-wrap: wrap;
@@ -72,6 +71,19 @@
            width: 95%;
            border-radius: 6px;
            }
+           .photo-header2 {
+            position: relative;
+            margin: 0 auto;
+            margin-bottom: -50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: #FF8374;
+           color: white;
+            padding: 10px;
+            width: 95%;
+            border-radius: 6px;
+          }
            .photo-header img {
            width: 250px;
            height: 250px;
@@ -146,15 +158,57 @@
         </head>
         <body>
         <div class="container">
-           <div class="row">
-                <div class="col photo-header">
-                <img src=https://avatars0.githubusercontent.com/u/57274530?v=4></img>
-                <h1>Hi!</h1>
-                <h1>My name is Jordan Hanson</h1>
-                <h2>Currently student of UofU Coding Bootcamp!</h2>
-                </div>
-            </div>
-           <a href=https://github.com/jordan-hanson>Git Hub</a>
+    <div class="wrapper">
+      <div class="row">
+        <div class="photo-header">
+          <img src=https://avatars0.githubusercontent.com/u/57274530?v=4></img>
+          <h1>Hi!</h1>
+          <h1>My name is Jordan Hanson</h1>
+          <h5>Currently student of UofU Coding Bootcamp!</h5>
         </div>
+      </div>
+      <div class="row">
+        <div class="photo-header2">
+          <a class="col nav-link" href=https://github.com/jordan-hanson>Git Hub</a>
+          <a class="col nav-link" href=null>Location</a>
+          <a class="col nav-link" href="https://jordan-hanson.github.io/portfolio/">Blog</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <div class="main">
+      <div class="row">
+        <h1 class="col">I build things and teach people to code.</h1>
+      </div>
+      <div class="row">
+        <div class="col card">
+           <h1>Public Repositories</h1>
+           <div class="row">
+           <a src=14></a>
+           </div>
+        </div>
+        <div class="col card">
+           <h1>Followers</h1>
+           <div class="row">
+           <h4 src=2></h4>
+           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col card">
+           <h1>Git Hub Stars</h1>
+           <div class="row">
+           <a href=https://api.github.com/users/jordan-hanson/starred{/owner}{/repo}></a>
+           </div>
+        </div>
+        <div class="col card">
+           <h2>Following
+           <br>
+           2</h2>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
         </body>
         </html>

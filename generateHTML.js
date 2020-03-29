@@ -92,7 +92,6 @@ function generateHTML(data) {
            .photo-header {
            position: relative;
            margin: 0 auto;
-           margin-bottom: -50px;
            display: flex;
            justify-content: center;
            flex-wrap: wrap;
@@ -102,6 +101,19 @@ function generateHTML(data) {
            width: 95%;
            border-radius: 6px;
            }
+           .photo-header2 {
+            position: relative;
+            margin: 0 auto;
+            margin-bottom: -50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: ${colors[data.color].headerBackground};
+           color: ${colors[data.color].headerColor};
+            padding: 10px;
+            width: 95%;
+            border-radius: 6px;
+          }
            .photo-header img {
            width: 250px;
            height: 250px;
@@ -176,16 +188,55 @@ function generateHTML(data) {
         </head>
         <body>
         <div class="container">
-           <div class="row">
-                <div class="col photo-header">
-                <img src=${data.avatar_url}></img>
-                <h1>Hi!</h1>
-                <h1>My name is Jordan Hanson</h1>
-                <h2>Currently student of UofU Coding Bootcamp!</h2>
-                </div>
-            </div>
-           <a href=${data.html_url}>Git Hub</a>
+    <div class="wrapper">
+      <div class="row">
+        <div class="photo-header">
+          <img src=${data.avatar_url}></img>
+          <h1>Hi!</h1>
+          <h1>My name is Jordan Hanson</h1>
+          <h5>Currently student of UofU Coding Bootcamp!</h5>
         </div>
+      </div>
+      <div class="row">
+        <div class="photo-header2">
+          <a class="col nav-link" href=${data.html_url}>Git Hub</a>
+          <a class="col nav-link" href=${data.location}>Location</a>
+          <a class="col nav-link" href="https://jordan-hanson.github.io/portfolio/">Blog</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <div class="main">
+      <div class="row">
+        <h1 class="col">I build things and teach people to code.</h1>
+      </div>
+      <div class="row">
+        <div class="col card">
+           <h1>Public Repositories
+           <br>
+           ${data.public_repos}</h1>
+        </div>
+        <div class="col card">
+           <h1>Followers
+           <br>
+           ${data.followers}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col card">
+           <h1>GitHub Stars
+           <br>
+           ${starred}</h1>
+        </div>
+        <div class="col card">
+           <h1>Following
+           <br>
+           ${data.followers}</h1>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
         </body>
         </html>`
     fs.writeFile("resume.html", Html, function (error) {
