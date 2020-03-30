@@ -193,7 +193,7 @@ function generateHTML(data) {
         <div class="photo-header">
           <img src=${data.avatar_url}></img>
           <h1>Hi!</h1>
-          <h1>My name is Jordan Hanson</h1>
+          <h1>My name is ${name}</h1>
           <h5>Currently student of UofU Coding Bootcamp!</h5>
         </div>
       </div>
@@ -201,7 +201,7 @@ function generateHTML(data) {
         <div class="photo-header2">
           <a class="col nav-link" href=${data.html_url}>Git Hub</a>
           <a class="col nav-link" href=${data.location}>Location</a>
-          <a class="col nav-link" href="https://jordan-hanson.github.io/portfolio/">Blog</a>
+          <a class="col nav-link" href=${data.blog}>Blog</a>
         </div>
       </div>
     </div>
@@ -226,12 +226,13 @@ function generateHTML(data) {
         <div class="col card">
            <h1>GitHub Stars
            <br>
+           ${starred}
             </h1>
         </div>
         <div class="col card">
            <h1>Following
            <br>
-           ${data.followers}</h1>
+           ${data.following}</h1>
         </div>
       </div>
       </div>
