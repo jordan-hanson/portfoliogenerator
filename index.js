@@ -51,7 +51,7 @@ const generateHtml = require("./generateHTML")
 // }
 // data()
 gitHubProfile();
-async function gitHubProfile() {
+async function gitHubProfile(data) {
     try {
         const { name } = await inquirer.prompt({
             type: "input",
@@ -59,7 +59,6 @@ async function gitHubProfile() {
             message: "What is your name?"
         });
         // return name,??
-
         console.log("this is their name", name)
         const { username } = await inquirer.prompt({
             type: "input",
@@ -92,5 +91,6 @@ async function gitHubProfile() {
     } catch (err) {
         console.log(err);
     };
-    generateHtml(gitHubProfile)
+    return data.color = color,
+        generateHtml(gitHubProfile)
 }
