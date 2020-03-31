@@ -1,6 +1,5 @@
 # portfoliogenerator
-My Coffee Finder
-
+Portfolio Generator Employer Tool
 Overview
 
 The Portfolio Generator is a great tool to use as an employer. All you need for your perspective employee developer is to provide you with their name, GitHub username, and color preference. Using the CLI of the terminal it will make a PDF version and links to their GitHub stats for potential employment. 
