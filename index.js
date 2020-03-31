@@ -59,5 +59,4 @@ async function gitHubProfile() {
     } catch (err) {
         console.log(err);
     };
-    // generateHtml(profile)
 }
