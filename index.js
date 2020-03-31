@@ -1,5 +1,3 @@
-// const URL = `https://api.github.com/users/${username}`
-// const starUrl = `https://api.github.com/users/${username}/starred`
 const axios = require("axios")
 const inquirer = require("inquirer")
 const generateHtml = require("./generateHTML")
