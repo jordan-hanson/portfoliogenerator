@@ -1,4 +1,5 @@
 const fs = require("fs")
+const pdf = require('html-pdf');
 
 const colors = {
     green: {
@@ -193,14 +194,14 @@ function generateHTML(data) {
         <div class="photo-header">
           <img src=${data.avatar_url}></img>
           <h1>Hi!</h1>
-          <h1>My name is ${name}</h1>
+          <h1>My name is ${data.name}</h1>
           <h5>Currently student of UofU Coding Bootcamp!</h5>
         </div>
       </div>
       <div class="row">
         <div class="photo-header2">
-          <a class="col nav-link" href=${data.html_url}>Git Hub</a>
-          <a class="col nav-link" href=${data.location}>Location</a>
+        <a class="col nav-link" href=${data.location}>Location</a>
+        <a class="col nav-link" href=${data.html_url}>Git Hub</a>
           <a class="col nav-link" href=${data.blog}>Blog</a>
         </div>
       </div>
@@ -226,7 +227,7 @@ function generateHTML(data) {
         <div class="col card">
            <h1>GitHub Stars
            <br>
-           ${starred}
+           ${data.starCount}
             </h1>
         </div>
         <div class="col card">
@@ -242,6 +243,14 @@ function generateHTML(data) {
         </html>`
     fs.writeFile("resume.html", Html, function (error) {
         console.log(error)
+        var html = fs.readFileSync('./resume.html', 'utf8');
+        var options = { format: 'Letter' };
+
+        pdf.create(html, options).toFile('resume.pdf', function (err, res) {
+            if (err) return console.log(err);
+            console.log(res); // { filename: 'resume.pdf' }
+        });
+
     })
 
 }
