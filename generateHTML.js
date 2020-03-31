@@ -2,34 +2,34 @@ const fs = require("fs")
 const pdf = require('html-pdf');
 
 const colors = {
-    green: {
-        wrapperBackground: "#E6E1C3",
-        headerBackground: "#C1C72C",
-        headerColor: "black",
-        photoBorderColor: "#black"
-    },
-    blue: {
-        wrapperBackground: "#5F64D3",
-        headerBackground: "#26175A",
-        headerColor: "white",
-        photoBorderColor: "#73448C"
-    },
-    pink: {
-        wrapperBackground: "#879CDF",
-        headerBackground: "#FF8374",
-        headerColor: "white",
-        photoBorderColor: "#FEE24C"
-    },
-    red: {
-        wrapperBackground: "#DE9967",
-        headerBackground: "#870603",
-        headerColor: "white",
-        photoBorderColor: "white"
-    }
+  green: {
+    wrapperBackground: "#E6E1C3",
+    headerBackground: "#C1C72C",
+    headerColor: "black",
+    photoBorderColor: "#black"
+  },
+  blue: {
+    wrapperBackground: "#5F64D3",
+    headerBackground: "#26175A",
+    headerColor: "white",
+    photoBorderColor: "#73448C"
+  },
+  pink: {
+    wrapperBackground: "#879CDF",
+    headerBackground: "#FF8374",
+    headerColor: "white",
+    photoBorderColor: "#FEE24C"
+  },
+  red: {
+    wrapperBackground: "#DE9967",
+    headerBackground: "#870603",
+    headerColor: "white",
+    photoBorderColor: "white"
+  }
 };
 
 function generateHTML(data) {
-    const Html = `<!DOCTYPE html>
+  const Html = `<!DOCTYPE html>
   <html lang="en">
      <head>
         <meta charset="UTF-8" />
@@ -58,6 +58,10 @@ function generateHTML(data) {
            background-color: ${colors[data.color].wrapperBackground};
            padding-top: 100px;
            }
+           .wrapper2 {
+            background-color: #879CDF;
+            padding-top: 100px;
+          }
            body {
            background-color: white;
            -webkit-print-color-adjust: exact !important;
@@ -188,23 +192,22 @@ function generateHTML(data) {
         </style>
         </head>
         <body>
+        <div class="wrapper">
         <div class="container">
-    <div class="wrapper">
-      <div class="row">
-        <div class="photo-header">
+        <div class="row">
+        <div class="col photo-header">
           <img src=${data.avatar_url}></img>
           <h1>Hi!</h1>
           <h1>My name is ${data.name}</h1>
           <h5>Currently student of UofU Coding Bootcamp!</h5>
+            <div class="photo-header">
+            <a class="col nav-link" href=${data.location}>Location</a>
+            <a class="col nav-link" href=${data.html_url}>Git Hub</a>
+            <a class="col nav-link" href=${data.blog}>Blog</a>
         </div>
       </div>
-      <div class="row">
-        <div class="photo-header2">
-        <a class="col nav-link" href=${data.location}>Location</a>
-        <a class="col nav-link" href=${data.html_url}>Git Hub</a>
-          <a class="col nav-link" href=${data.blog}>Blog</a>
-        </div>
       </div>
+    </div>
     </div>
     <div class="container">
     <div class="main">
@@ -238,20 +241,20 @@ function generateHTML(data) {
       </div>
       </div>
     </div>
-  </div>
+  <div class="wrapper2"></div>
         </body>
         </html>`
-    fs.writeFile("resume.html", Html, function (error) {
-        console.log(error)
-        var html = fs.readFileSync('./resume.html', 'utf8');
-        var options = { format: 'Letter' };
+  fs.writeFile("resume.html", Html, function (error) {
+    console.log(error)
+    var html = fs.readFileSync('./resume.html', 'utf8');
+    var options = { format: 'Letter' };
 
-        pdf.create(html, options).toFile('resume.pdf', function (err, res) {
-            if (err) return console.log(err);
-            console.log(res); // { filename: 'resume.pdf' }
-        });
+    pdf.create(html, options).toFile('resume.pdf', function (err, res) {
+      if (err) return console.log(err);
+      console.log(res); // { filename: 'resume.pdf' }
+    });
 
-    })
+  })
 
 }
 module.exports = generateHTML
